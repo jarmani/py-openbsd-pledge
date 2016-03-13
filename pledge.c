@@ -2,20 +2,20 @@
 #include "Python.h"
 
 static PyObject *
-py_pledge(PyObject *self, PyObject *args) 
+py_pledge(PyObject *self, PyObject *args)
 {
-    const char *promises;
-    int r;
+	const char *promises;
+	int r;
 
-    if (!PyArg_ParseTuple(args, "s", &promises))
-                return NULL;
+	if (!PyArg_ParseTuple(args, "s", &promises))
+		return NULL;
 
-    r = pledge(promises);
+	r = pledge(promises);
 
-#if PY_MAJOR_VERSION >= 3 
-    return PyLong_FromLong(r);
+#if PY_MAJOR_VERSION >= 3
+	return PyLong_FromLong(r);
 #else
-    return Py_BuildValue("i", r);
+	return Py_BuildValue("i", r);
 #endif
 }
 
@@ -27,17 +27,17 @@ static PyMethodDef PledgeMethods[] = {
 #if PY_MAJOR_VERSION >= 3
 
 static struct PyModuleDef pledgemodule = {
-    PyModuleDef_HEAD_INIT,
-    "pledge", 
-    "OpenBSD pledge binding",
-    -1,
-    PledgeMethods
+	PyModuleDef_HEAD_INIT,
+	"pledge",
+	"OpenBSD pledge binding",
+	-1,
+	PledgeMethods
 };
 
 PyMODINIT_FUNC
 PyInit_pledge(void)
 {
-    return PyModule_Create(&pledgemodule);
+	return PyModule_Create(&pledgemodule);
 }
 
 #else
@@ -45,7 +45,7 @@ PyInit_pledge(void)
 PyMODINIT_FUNC
 initpledge(void)
 {
-    (void) Py_InitModule("pledge", PledgeMethods);
+	(void) Py_InitModule("pledge", PledgeMethods);
 }
 
 #endif
