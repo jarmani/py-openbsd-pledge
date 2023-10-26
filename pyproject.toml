@@ -1,0 +1,26 @@
+
+[project]
+name = "pledge"
+version = "0.2.0"
+description = "Python binding for pledge and unveil"
+license = { file = "LISENCE" }
+requires-python = ">=3.8"
+authors = [
+  { name = "Jonathan Armani", email = "jonathan@armani.tech" }
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: ISC License (ISCL)",
+  "Operating System :: POSIX :: BSD :: OpenBSD",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Security",
+  "Topic :: System :: Operating System Kernels :: BSD",
+]
+keywords = ["OpenBSD", "pledge", "unveil", "jail"]
+
+[projects.url]
+Homepage = "https://github.com/jarmani/py-openbsd-pledge"
+
